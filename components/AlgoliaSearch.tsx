@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+import { motion } from "framer-motion";
 import { DocSearchModal } from '@docsearch/react';
 import type { DocSearchHit, InternalDocSearchHit, StoredDocSearchHit } from '@docsearch/react/dist/esm/types';
 import clsx from 'clsx';
@@ -114,29 +115,36 @@ function AlgoliaModal({ onClose, initialQuery, indexName }: AlgoliaModalProps) {
   const router = useRouter();
 
   return createPortal(
-    <DocSearchModal
-      initialQuery={initialQuery}
-      initialScrollY={window.scrollY}
-      searchParameters={{
-        distinct: 1
-      }}
-      placeholder={indexName === DOCS_INDEX_NAME ? 'Search documentation' : 'Search resources'}
-      onClose={onClose}
-      indexName={indexName}
-      apiKey={API_KEY}
-      appId={APP_ID}
-      navigator={{
-        navigate({ itemUrl }) {
-          onClose();
-          router.push(itemUrl);
-        }
-      }}
-      hitComponent={Hit}
-      transformItems={transformItems}
-      getMissingResultsUrl={({ query }) => {
-        return `https://github.com/asyncapi/website/issues/new?title=Cannot%20search%20given%20query:%20${query}`;
-      }}
-    />,
+    <motion.div
+    initial={{ opacity: 0, y: -50 }} // Start above
+    animate={{ opacity: 1, y: 0 }} // Move to normal position
+    exit={{ opacity: 0, y: -50 }} // Slide back up on close
+    transition={{ duration: 0.4, ease: "easeOut" }}
+    className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-md z-50"
+  >
+
+      <DocSearchModal 
+        initialQuery={initialQuery}
+        initialScrollY={window.scrollY}
+        searchParameters={{ distinct: 1 }}
+        placeholder={indexName === DOCS_INDEX_NAME ? 'Search documentation' : 'Search resources'}
+        onClose={onClose}
+        indexName={indexName}
+        apiKey={API_KEY}
+        appId={APP_ID}
+        navigator={{
+          navigate({ itemUrl }) {
+            onClose();
+            router.push(itemUrl);
+          }
+        }}
+        hitComponent={Hit}
+        transformItems={transformItems}
+        getMissingResultsUrl={({ query }) => {
+          return `https://github.com/asyncapi/website/issues/new?title=Cannot%20search%20given%20query:%20${query}`;
+        }}
+      />
+    </motion.div>,
     document.body
   );
 }
