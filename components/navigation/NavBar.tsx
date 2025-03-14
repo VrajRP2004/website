@@ -144,7 +144,7 @@ export default function NavBar({ className = '', hideLogo = false }: NavBarProps
   }, [asPath]);
 
   return (
-    <div className={`bg-white ${className} z-50`}>
+    <div className={`macwindo-bg2 ${className} tcolor z-50`}>
       <div className='flex w-full items-center justify-between py-6 lg:justify-start lg:space-x-2'>
         {!hideLogo && (
           <div className='lg:w-auto lg:flex-1'>
@@ -175,12 +175,12 @@ export default function NavBar({ className = '', hideLogo = false }: NavBarProps
           </button>
         </div>
 
-        <nav
-          className='hidden w-full space-x-4 lg:flex lg:items-center lg:justify-end xl:space-x-8'
+        <nav style={{'color':'white'}}
+          className='hidden w-full tcolor space-x-4 lg:flex lg:items-center lg:justify-end xl:space-x-8 macwindo-bg2'
           data-testid='Navbar-main'
         >
-          <div className='relative' onMouseLeave={() => showMenu(null)} ref={learningRef}>
-            <NavItem
+          <div className='relative tcolor' onMouseLeave={() => showMenu(null)} ref={learningRef}>
+            <NavItem className='tcolor'
               text='Docs'
               href='/docs'
               onClick={() => showOnClickMenu('learning')}
@@ -192,6 +192,7 @@ export default function NavBar({ className = '', hideLogo = false }: NavBarProps
 
           <div className='relative' onMouseLeave={() => showMenu(null)} ref={toolingRef}>
             <NavItem
+            className='tcolor'
               text='Tools'
               href='/tools'
               onClick={() => showOnClickMenu('tooling')}
@@ -202,7 +203,7 @@ export default function NavBar({ className = '', hideLogo = false }: NavBarProps
           </div>
 
           <div className='relative' onMouseLeave={() => showMenu(null)} ref={communityRef}>
-            <NavItem
+            <NavItem  className='tcolor'
               text='Community'
               href='/community'
               onClick={() => showOnClickMenu('community')}

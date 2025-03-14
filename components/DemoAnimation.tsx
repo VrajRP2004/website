@@ -284,7 +284,7 @@ export default function DemoAnimation({ className = '' }: IDemoAnimationProps) {
         className='transition-all duration-500 ease-in-out md:flex'
         style={showControls ? { filter: '', opacity: '1' } : undefined}
       >
-        <div className='z-20 mb-2 md:mb-0 md:mr-1 md:flex-1'>
+        <div className='z-20 mb-2 md:mb-0 md:mr-1 md:flex-1 macwindo-bg'>
           <MacWindow
             className='h-full border border-gray-800 bg-code-editor-dark shadow-lg transition-all duration-500 ease-in-out'
             contentClassName='text-left text-white text-sm font-mono font-medium transition-all duration-500 ease-in-out break-words md:min-h-108'
@@ -310,7 +310,7 @@ export default function DemoAnimation({ className = '' }: IDemoAnimationProps) {
             <OpenInStudioButton />
           </div>
           <MacWindow
-            className={`min-h-full border border-gray-200 bg-gray-50 shadow-lg transition-all duration-500 ease-in-out ${showControls ? 'h-0 -translate-x-full opacity-0 lg:h-auto lg:-translate-x-3/4 lg:opacity-100' : ''}`}
+            className={`min-h-full  macwindo-bg shadow-lg transition-all duration-500 ease-in-out ${showControls ? 'h-0 -translate-x-full opacity-0 lg:h-auto lg:-translate-x-3/4 lg:opacity-100' : ''}`}
             contentClassName='text-left h-full text-gray-800 text-sm font-medium transition-all duration-500 ease-in-out'
             title='Account Service Documentation'
           >

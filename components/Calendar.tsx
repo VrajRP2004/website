@@ -34,7 +34,7 @@ export default function Calendar({ className = '', size }: ICalendarProps) {
   return (
     <div
       className={twMerge(
-        'overflow-hidden rounded-md border border-gray-200 bg-white p-4 h-full flex flex-col gap-2',
+        'overflow-hidden rounded-md macwindo-bg tcolor p-4 h-full flex flex-col gap-2',
         className
       )}
     >
@@ -49,7 +49,7 @@ export default function Calendar({ className = '', size }: ICalendarProps) {
                 <span className='flex-1 self-center text-center'>{moment(event.date).format('D')}</span>
               </div>
               <div className='grow text-left sm:mt-0 sm:pl-6'>
-                <h2 className='title-font font-medium text-gray-900 hover:text-gray-500'>{event.title}</h2>
+                <h2 className='title-font font-medium tcolor hover:text-gray-500'>{event.title}</h2>
                 <p className='text-gray-600'>
                   {moment(event.date).local().format('LLLL')} UTC
                   {moment(event.date).local().format('Z')}

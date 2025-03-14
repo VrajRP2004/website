@@ -47,7 +47,7 @@ export default function FeaturedBlogPost({ post, className = '' }: FeaturedBlogP
         <Link href={post.slug}>
           <span
             className={
-              'flex h-full cursor-pointer flex-col divide-y divide-gray-200 overflow-hidden rounded-lg border border-gray-200 shadow-md transition-all duration-300 ease-in-out hover:shadow-lg md:max-w-164 md:flex-row'
+              'flex h-full cursor-pointer flex-col divide-y divide-gray-200 overflow-hidden rounded-lg  shadow-md transition-all duration-300 ease-in-out hover:shadow-lg md:max-w-164 md:flex-row'
             }
             data-testid='FeaturedBlogPostItem-Link'
           >
@@ -57,7 +57,7 @@ export default function FeaturedBlogPost({ post, className = '' }: FeaturedBlogP
               alt=''
               data-testid='FeaturedBlogPostItem-Img'
             />
-            <div className='flex flex-1 flex-col justify-between border-none bg-white p-6 text-left'>
+            <div className='flex flex-1 flex-col justify-between border-none macwindo-bg1 p-6 text-left'>
               <div className='flex-1'>
                 <Paragraph typeStyle={ParagraphTypeStyle.sm} textColor='text-indigo-500'>
                   <span

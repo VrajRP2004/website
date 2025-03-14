@@ -11,12 +11,16 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
-
+/* Background:  (Near-black blue)
+Primary: #0F1A30 (Dark indigo)
+Accent: #0077FF (Electric neon blue) */
 html,
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  background-color:#060B18;
+  color: white;
 }
 
 li>p {
@@ -24,7 +28,6 @@ li>p {
 }
 
 .atss {
-  /* AddThis plugin */
   z-index: 10 !important;
 }
 
@@ -69,7 +72,6 @@ abbr[title] {
   }
 }
 
-/* adjust swiper library */
 .swiper-wrapper {
   align-items: stretch;
 }
@@ -78,7 +80,6 @@ abbr[title] {
   height: auto !important;
 }
 
-/* adjust DocsSearch input styles */
 .DocSearch-Input {
   border-width: 0;
   background-color: transparent;
@@ -123,7 +124,6 @@ abbr[title] {
   text-overflow: ellipsis;
 }
 
-/* adjust DocsSearch mobile styles */
 @media (max-width: 750px) {
   .DocSearch-Container {
     position: fixed !important;
@@ -149,9 +149,27 @@ abbr[title] {
   border: solid 3px #f3f3f4;
   transition: 0.2s;
 }
+div{
+  /* background-color: #232e44; */
+
+}
+.macwindo-bg{
+  background-color: #232e44;
+}
+.macwindo-bg2{
+  background-color: #0d152b;
+}
+.macwindo-bg1{
+  background-color: #060B18;
+}
+.tcolor{
+  color: white;
+}
 
 .orbit > div {
   cursor: pointer;
+  /* background-color: #232e44; */
+  color: white;
 }
 
 .orbit > div > img {
@@ -162,8 +180,8 @@ abbr[title] {
   font-size: 60px;
 }
 #first-orbit {
-  --n: 6; /* number of item */
-  --d: 70s; /* duration */
+  --n: 6;
+  --d: 70s; 
   width: 600px;
   height: 600px;
   top: 165px;
@@ -176,8 +194,8 @@ abbr[title] {
 }
 
 #second-orbit {
-  --no: 7; /* number of item */
-  --de: 80s; /* duration */
+  --no: 7; 
+  --de: 80s;
   width: 800px;
   height: 800px;
   top: 75px;
@@ -189,8 +207,8 @@ abbr[title] {
 }
 
 #third-orbit {
-  --ni: 7; /* number of item */
-  --ds: 80s; /* duration */
+  --ni: 7; 
+  --ds: 80s; 
   width: 1000px;
   height: 1000px;
   top: -10px;
