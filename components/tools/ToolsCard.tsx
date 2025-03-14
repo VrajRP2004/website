@@ -25,6 +25,7 @@ export default function ToolsCard({ toolData }: ToolsCardProp) {
   const [isTruncated, setIsTruncated] = useState<boolean>(false);
   const [readMore, setReadMore] = useState<boolean>(false);
   const descriptionRef = useRef<HTMLDivElement>(null);
+  console.log(toolData)
 
   // Decide whether to show full description or not in the card based on the number of lines occupied by the description.
   useEffect(() => {
@@ -116,27 +117,49 @@ export default function ToolsCard({ toolData }: ToolsCardProp) {
       </div>
       <hr className='mx-6' />
       <div className='grow'>
-        {toolData.filters?.language || toolData?.filters?.technology?.length ? (
+        {toolData.filters?.language && toolData?.filters?.technology?.length ? (
           <div className='my-6'>
             {toolData.filters.language && (
               <div className='mx-6 flex flex-col gap-2'>
-                <CardData
-                  className='text-sm'
-                  heading='LANGUAGE'
-                  data={Data.properties.filters.properties.language.description}
-                  type='lang'
-                  visible={visible}
-                  setVisible={setVisible}
-                  read={readMore}
-                  setRead={setReadMore}
-                />
-                <div className='flex gap-2'>
-                  {toolData.filters?.language &&
-                    toolData.filters?.language.map((item, index) => (
-                      <Tag key={index} name={item.name} bgColor={item.color} borderColor={item.borderColor} />
-                    ))}
-                </div>
-              </div>
+              {Data.properties.filters.properties.language.description && (toolData.filters?.language && toolData.filters.language.length > 0) ? (
+                <>
+                  <CardData
+                    className='text-sm'
+                    heading='LANGUAGE'
+                    data={Data.properties.filters.properties.language.description}
+                    type='lang'
+                    visible={visible}
+                    setVisible={setVisible}
+                    read={readMore}
+                    setRead={setReadMore}
+                  />
+                  <div className='flex gap-2'>
+                    {toolData.filters?.language &&
+                      toolData.filters.language.map((item, index) => (
+                        <Tag key={index} name={item.name} bgColor={item.color} borderColor={item.borderColor} />
+                      ))}
+                  </div>
+                </>
+              ) : null}
+            </div>
+              // <div className='mx-6 flex flex-col gap-2'>
+              //   <CardData
+              //     className='text-sm'
+              //     heading='LANGUAGE'
+              //     data={Data.properties.filters.properties.language.description}
+              //     type='lang'
+              //     visible={visible}
+              //     setVisible={setVisible}
+              //     read={readMore}
+              //     setRead={setReadMore}
+              //   />
+              //   <div className='flex gap-2'>
+              //     {toolData.filters?.language &&
+              //       toolData.filters?.language.map((item, index) => (
+              //         <Tag key={index} name={item.name} bgColor={item.color} borderColor={item.borderColor} />
+              //       ))}
+              //   </div>
+              // </div>
             )}
             {toolData.filters.technology?.length !== 0 && (
               <div className='mx-6 my-4 flex flex-col gap-2'>
